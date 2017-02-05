@@ -10,7 +10,7 @@ function emotionFromResponse(res) {
       maxEmotion = key
     }
   }
-  console.log(maxEmotion + " : " + max);
+  return maxEmotion;
 }
 
 

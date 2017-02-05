@@ -6,7 +6,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 var port = process.env.port || 8080
 app.get('/', function(req, res, next) {
-  res.send("Nothing to see here...<i>yet!</i>");
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 app.get('/image', function(req, res, next) {
