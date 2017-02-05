@@ -16,8 +16,8 @@ app.get('/image', function(req, res, next) {
 });
 
 app.get('/results', function(req, res, next) {
-  console.log(req);
-  res.render('index', req.params)
+  console.log(req.body);
+  res.render('index', req.body)
 })
 
 app.post('/uploadImage', function(req, res, next) {
