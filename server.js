@@ -35,7 +35,7 @@ app.post('/uploadImage', function(req, res, next) {
               else {
                 value = data.data[index].images.original.url;
               }
-              value = value.split("/")[2]
+              value = value.split("/")[4]
               gifLinks.push(value);
               //console.log('added value:' + value);
           }
