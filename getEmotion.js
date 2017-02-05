@@ -1,6 +1,4 @@
 var request = require('request');
-var Blob = require('blob');
-var atob = require('atob');
 module.exports =
 function(imgID) {
 
