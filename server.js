@@ -15,6 +15,10 @@ app.get('/image', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/takePicture.html'));
 });
 
+app.get('/about', function(req, res, next) {
+  res.sendFile(path.join(__dirname+'/about.html'));
+});
+
 app.post('/results', function(req, res, next) {
   console.log(req.body);
   res.render('index', req.body)
