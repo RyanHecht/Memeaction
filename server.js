@@ -5,6 +5,8 @@ var app = express();
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 var port = process.env.port || 8080
+app.set('view engine', 'ejs');
+
 app.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
@@ -12,6 +14,10 @@ app.get('/', function(req, res, next) {
 app.get('/image', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/takePicture.html'));
 });
+
+app.get('/results', function(req, res, next) {
+  res.render('index', req.params)
+})
 
 app.post('/uploadImage', function(req, res, next) {
    var base64Data = req.body.img.replace(/^data:image\/png;base64,/, "");
@@ -26,11 +32,11 @@ app.post('/uploadImage', function(req, res, next) {
           var emotion = emotionFromResponse(body);
           require("./gifapi")(emotion)
           .then(function(data){
-            for (index = 0; index < 5; index ++){
+            for (count = 0; count < 4; count ++){
               var value="";
+              var index = Math.floor(Math.random() * 20);
               if('content_data' in data.results[index]) {
                 value = data.results[index].content_data.embedLink;
-
               }
               else {
                 value = data.data[index].images.original.url;

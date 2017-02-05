@@ -24,7 +24,7 @@ var getGifs = function(emotion){
   if(emotion in emotionDictionary){
     var options = {
       method: 'GET',
-      uri: URL + MID_BASE+emotionDictionary[emotion]+LIMIT+"5"+PUBLIC_KEY,
+      uri: URL + MID_BASE+emotionDictionary[emotion]+LIMIT+"20"+PUBLIC_KEY,
       json: true
     };
     // should I return this?
@@ -34,7 +34,7 @@ var getGifs = function(emotion){
   else{
     var options = {
       method: 'GET',
-      uri: "http://api.giphy.com/v1/gifs/search?q=" + emotion + "&limit=5&api_key=dc6zaTOxFJmzC",
+      uri: "http://api.giphy.com/v1/gifs/search?q=" + emotion + "&limit=20&api_key=dc6zaTOxFJmzC",
       json: true
     };
     return rp(options)
