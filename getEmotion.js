@@ -3,9 +3,8 @@ module.exports =
 function(imgID) {
 
   var object = { "url": "http://memeaction.azurewebsites.net/img/" + imgID + ".png" }
-
-  console.log(object);
-  return request({
+  var resBody = {};
+  request({
     url: 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize',
     method: 'POST',
     headers: {
@@ -14,14 +13,10 @@ function(imgID) {
     },
     json: object
 }, function(error, response, body){
-  console.log("did it")
     if(error) {
-        console.log("error: " + error);
     } else {
-      console.log("no error")
-      console.log(body)
-        return "got it: " + body;
+        resBody = body
     }
 });
-
+return resBody
 };
