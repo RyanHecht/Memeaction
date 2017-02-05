@@ -1,7 +1,7 @@
 var request = require('request-promise');
 
 function emotionFromResponse(res) {
-  
+  console.log(res[0].scores)
 }
 
 
@@ -21,7 +21,7 @@ function(imgID) {
   request(options)
     .then(function (body) {
       console.log(body);
-      return body;
+      emotion = emotionFromResponse(body);
     })
     .catch(function (err) {
       console.log('err');

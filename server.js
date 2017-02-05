@@ -20,9 +20,9 @@ app.post('/uploadImage', function(req, res, next) {
       console.log(err);
       //res.status('500');
     });
-    var emotion = require("./getEmotion")(rand);
-    console.log(JSON.stringify(emotion))
-    res.send(emotion);
+    //var emotion = require("./getEmotion")(rand);
+    //console.log(JSON.stringify(emotion))
+    //res.send(emotion);
 });
 
 app.get('/js/:file', function(req, res, next) {
