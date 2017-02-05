@@ -34,9 +34,9 @@ app.post('/uploadImage', function(req, res, next) {
         gifLinks = []
         require("./getEmotion")(rand)
         .then(function (body) {
-          console.log(body[0].scores);
+          //console.log(body[0].scores);
           var emotion = emotionFromResponse(body);
-          console.log(emotion)
+          //console.log(emotion)
           require("./gifapi")(emotion)
           .then(function(data){
             usedNums = []
