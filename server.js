@@ -39,9 +39,15 @@ app.post('/uploadImage', function(req, res, next) {
           console.log(emotion)
           require("./gifapi")(emotion)
           .then(function(data){
+            usedNums = []
             for (count = 0; count < 4; count ++){
               var value="";
-              var index = Math.floor(Math.random() * 20);
+              var index;
+              do {
+                index = Math.floor(Math.random() * 20);
+              }
+              while(usedNums.contains(index));
+              usedNums.push(index);
               if('results' in data) {
                 value = data.results[index].content_data.embedLink;
               }
