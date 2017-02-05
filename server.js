@@ -19,6 +19,7 @@ app.post('/uploadImage', function(req, res, next) {
     require("fs").writeFile("img/" + rand + ".png", base64Data, 'base64', function(err) {
       if(err) console.log(err)
       else {
+        resData = {}
         gifLinks = []
         require("./getEmotion")(rand)
         .then(function (body) {
@@ -37,7 +38,10 @@ app.post('/uploadImage', function(req, res, next) {
               gifLinks.push(value);
               //console.log('added value:' + value);
           }
-          res.send(gifLinks)
+          resData.gifs = gifLinks
+          resData.emotion = emotion
+          resData.imgID = rand
+          res.send(resData)
         }
           )
           .catch(function(err){
