@@ -31,8 +31,9 @@ function(imgID) {
     .then(function (body) {
       console.log(body);
       var emotion = emotionFromResponse(body);
+      console.log(emotion);
     })
     .catch(function (err) {
-      console.log('err');
+      console.log(err);
     })
 };
