@@ -14,9 +14,11 @@ function(imgID) {
     },
     json: object
 }, function(error, response, body){
+  console.log("did it")
     if(error) {
         console.log("error: " + error);
     } else {
+      console.log("no error")
         return "got it: " + body;
     }
 });
