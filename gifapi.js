@@ -33,12 +33,13 @@ var getGifs = function(emotion){
 
     }
   else{
+    console.log("http://api.giphy.com/v1/gifs/search?q=" + emotion + "&limit=20&api_key=dc6zaTOxFJmzC");
     var options = {
       method: 'GET',
       uri: "http://api.giphy.com/v1/gifs/search?q=" + emotion + "&limit=20&api_key=dc6zaTOxFJmzC",
       json: true
     };
-    return rp(options)
+    return rp(options);
     }
 };
 module.exports = getGifs;

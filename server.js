@@ -80,7 +80,7 @@ app.get('/teampictures/:file', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/teampictures/' + req.params.file));
 });
 
-app.get('/style/:file*', function(req, res, next) {
+app.get('/style/:file', function(req, res, next) {
   if(req.params.file == "materialize") {
     res.sendFile(path.join(__dirname+'/style/materialize/css/materialize.min.css'));
   }
@@ -92,7 +92,7 @@ app.get('/style/:file*', function(req, res, next) {
 
 app.get('/img/:file', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/img/' + req.params.file))
-})
+});
 
 function emotionFromResponse(res) {
   var scores = res[0].scores
