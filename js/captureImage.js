@@ -350,12 +350,12 @@ function stopFunction() {
          img: dataBlob
       }
     }).done(function(o) {
-      window.location = "https://memeaction.azurewebsites.net/results"
-      /*$.ajax({
+
+      $.ajax({
         type: "GET",
         url: "/results",
         data: o
-      })*/
+      })
     });
 
   //console.log(dataURL);
