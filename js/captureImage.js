@@ -355,6 +355,8 @@ function stopFunction() {
         type: "POST",
         url: "/results",
         data: o
+      }).done(function(res) {
+        window.location.assign(res);
       })
     });
 
