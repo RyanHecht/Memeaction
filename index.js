@@ -14,10 +14,8 @@ app.get('/image', function(req, res, next) {
 });
 
 app.post('/uploadImage', function(req, res, next) {
-   var base64Data = req.body.img.replace(/^data:image\/png;base64,/, "");
-    require("fs").writeFile("img/out.png", base64Data, 'base64', function(err) {
-      console.log(err);
-    });
+   var data = req.body.img;
+   console.log(require('./getEmotion.js')(data));
 });
 
 app.get('/js/:file', function(req, res, next) {
