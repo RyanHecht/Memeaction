@@ -21,7 +21,7 @@ function(imgID) {
   request(options)
     .then(function (body) {
       console.log(body);
-      emotion = emotionFromResponse(body);
+      var emotion = emotionFromResponse(body);
     })
     .catch(function (err) {
       console.log('err');
