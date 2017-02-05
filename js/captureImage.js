@@ -342,16 +342,15 @@ function processPhoto(blob) {
 function stopFunction() {
   if (interval) clearInterval(interval);  // stop frame grabbing
   if (videoDevice) videoDevice.stop(); // turn off the camera
-  var dataBlob = document.getElementById('frame').toDataURL("application/octet-stream");
-      console.log(dataBlob);
+  var dataBlob = document.getElementById('frame').toDataURL();
       $.ajax({
       type: "POST",
       url: "/uploadImage",
       data: {
-         img: dataBlob.replace("data:image/png;base64,", "")
+         img: dataBlob
       }
     }).done(function(o) {
-      console.log('saved');
+      console.log(o.body);
     });
 
   //console.log(dataURL);
