@@ -37,7 +37,7 @@ app.post('/uploadImage', function(req, res, next) {
               gifLinks.push(value);
               //console.log('added value:' + value);
           }
-          return gifLinks
+          res.send(gifLinks)
         }
           )
           .catch(function(err){
