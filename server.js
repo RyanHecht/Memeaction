@@ -21,6 +21,7 @@ app.post('/uploadImage', function(req, res, next) {
       //res.status('500');
     });
     var emotion = require("./getEmotion")(rand);
+    console.log(JSON.stringify(emotion))
     res.send(emotion);
 });
 
