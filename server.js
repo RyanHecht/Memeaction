@@ -90,7 +90,7 @@ app.get('/style/:file*', function(req, res, next) {
 
 });
 
-app.get('/img/:file*', function(req, res, next) {
+app.get('/img/:file', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/img/' + req.params.file))
 })
 
