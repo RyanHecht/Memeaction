@@ -28,17 +28,8 @@ var getGifs = function(emotion){
       json: true
     };
     // should I return this?
-    rp(options)
-    .then(function(data){
-      for (index = 0; index < 5; index ++){
-        value = data.results[index].content_data.embedLink;
-        gifLinks.push(value);
-        //console.log('added value:' + value);
-    }}
-  )
-    .catch(function(err){
-      console.log(err);
-    });
+    return rp(options)
+
     }
   else{
     var options = {
@@ -46,20 +37,10 @@ var getGifs = function(emotion){
       uri: "http://api.giphy.com/v1/gifs/search?q=" + emotion + "&limit=5&api_key=dc6zaTOxFJmzC",
       json: true
     };
-    rp(options)
-    .then(function(data){
-        for (index = 0; index < 5; index ++){
-          value = data.data[index].images.original.url;
-          gifLinks.push(value);
-          //console.log('added value:' + value);
-        }}
-      )
-        .catch(function(err){
-          console.log(err);
-        })
+    return rp(options)
     }
 };
-
+module.exports = getGifs;
 //getGifs('anger');
 //console.log(getGifs('sadness'));
 

@@ -19,11 +19,31 @@ app.post('/uploadImage', function(req, res, next) {
     require("fs").writeFile("img/" + rand + ".png", base64Data, 'base64', function(err) {
       if(err) console.log(err)
       else {
+        gifLinks = []
         require("./getEmotion")(rand)
         .then(function (body) {
-          console.log(body);
           var emotion = emotionFromResponse(body);
-          console.log(emotion);
+          require("./gifapi")(emotion)
+          .then(function(data){
+            for (index = 0; index < 5; index ++){
+              var value="";
+              if('content_data' in data.results[index]) {
+                value = data.results[index].content_data.embedLink;
+              }
+              else {
+                value = data.data[index].images.original.url;
+              }
+
+              gifLinks.push(value);
+              //console.log('added value:' + value);
+          }
+          return gifLinks
+        }
+          )
+          .catch(function(err){
+            console.log(err);
+          });
+
         })
       }
       //res.status('500');
