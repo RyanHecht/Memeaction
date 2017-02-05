@@ -16,7 +16,7 @@ app.get('/image', function(req, res, next) {
 });
 
 app.get('/results', function(req, res, next) {
-  console.log(req.params);
+  console.log(req);
   res.render('index', req.params)
 })
 
