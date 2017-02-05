@@ -74,6 +74,10 @@ app.get('/js/:file', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/js/' + req.params.file));
 });
 
+app.get('/teampictures/:file', function(req, res, next) {
+  res.sendFile(path.join(__dirname+'/teampictures/' + req.params.file));
+});
+
 app.get('/style/:file*', function(req, res, next) {
   if(req.params.file == "materialize") {
     res.sendFile(path.join(__dirname+'/style/materialize/css/materialize.min.css'));
