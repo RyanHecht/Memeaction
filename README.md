@@ -15,6 +15,6 @@ gif sourcing (and gyphy when gif.gf did not have emotional gif data). The projec
 features a node.js backend. Materialize is used for frontend design.
 
 
-This is our first time working with all of the node stack, as well as our first time using Azure. Other technologies learned
+This is our first time working with all of the node stack at once, as well as our first time using Azure. Other technologies learned
 throughout the development of this project include cjs and dynamic HTML, sending binary data over the network, and some really
 cool node packages! (Also, two of our team members learned HTML and CSS for the very first time!)
