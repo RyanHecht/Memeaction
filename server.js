@@ -17,10 +17,13 @@ app.post('/uploadImage', function(req, res, next) {
    var base64Data = req.body.img.replace(/^data:image\/png;base64,/, "");
    var rand = Math.floor(Math.random() * 1000000);
     require("fs").writeFile("img/" + rand + ".png", base64Data, 'base64', function(err) {
-      console.log("error writing file -- " + rand);
+      if(err) console.log(err)
+      else {
+        var emotion = require("./getEmotion")(rand);
+      }
       //res.status('500');
     });
-    var emotion = require("./getEmotion")(rand);
+
     //console.log(JSON.stringify(emotion))
     //res.send(emotion);
 });

@@ -34,6 +34,6 @@ function(imgID) {
       console.log(emotion);
     })
     .catch(function (err) {
-      console.log(err);
+      console.log(err.body);
     })
 };
