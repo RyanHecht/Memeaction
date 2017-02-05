@@ -1,4 +1,11 @@
 var request = require('request-promise');
+
+function emotionFromResponse(res) {
+  
+}
+
+
+
 module.exports =
 function(imgID) {
   var options = {
@@ -11,8 +18,9 @@ function(imgID) {
       'Ocp-Apim-Subscription-Key': '9fa170b54cd845d787ca0bee2dfd9daf'
     }
   };
-  return request(options)
+  request(options)
     .then(function (body) {
+      console.log(body);
       return body;
     })
     .catch(function (err) {
