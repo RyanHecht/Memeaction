@@ -30,14 +30,16 @@ app.post('/uploadImage', function(req, res, next) {
               var value="";
               if('content_data' in data.results[index]) {
                 value = data.results[index].content_data.embedLink;
+
               }
               else {
                 value = data.data[index].images.original.url;
               }
-
+              value = value.split("/")[2]
               gifLinks.push(value);
               //console.log('added value:' + value);
           }
+
           resData.gifs = gifLinks
           resData.emotion = emotion
           resData.imgID = rand
