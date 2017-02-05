@@ -11,6 +11,10 @@ app.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
 
+app.get('/server.js', function(req, res, next) {
+  res.sendFile(path.join(__dirname+'/index.html'));
+});
+
 app.get('/image', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/takePicture.html'));
 });
