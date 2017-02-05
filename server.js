@@ -25,7 +25,7 @@ app.post('/uploadImage', function(req, res, next) {
     //res.send(emotion);
 });
 
-app.get('/js/:file*', function(req, res, next) {
+app.get('/js/:file', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/js/' + req.params.file));
 });
 
