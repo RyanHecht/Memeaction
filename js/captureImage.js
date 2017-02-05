@@ -256,7 +256,7 @@ if (typeof ImageCapture === 'undefined') {
 
 'use strict';
 
-let logElement = document.querySelector('#log');
+//let logElement = document.querySelector('#log');
 
 /**
  * Log messages to the #log element and the console
@@ -266,7 +266,7 @@ function log(...messages) {
   console.log(...messages);
   let p = document.createElement('p');
   p.innerText = messages.join(' ');
-  logElement.appendChild(p);
+  //logElement.appendChild(p);
 }
 
 /**
@@ -278,7 +278,7 @@ function err(...messages) {
   let p = document.createElement('p');
   p.innerText = messages.join(' ');
   p.style = 'color: red';
-  logElement.appendChild(p);
+  //logElement.appendChild(p);
 }
 
 

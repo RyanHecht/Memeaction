@@ -5,15 +5,31 @@
     <title>Take a Picture!</title>
     <meta name="theme-color" content="#ffffff">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/jquery-3.1.1.min"></script>
-    <script src="js/blob-util.min"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="style/materialize" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="style/randomStyle.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <script src:"style/materialize/js/materialize.min.js"></script>
+    <script src="js/jquery-3.1.1"></script>
 </head>
 <body>
-<p><canvas id="frame" width="640" height="480"></canvas></p>
-<p><img id="photo" src=""></p>
-<button id="stop">Take Picture</button>
-
-<div id="log"></div>
+  <nav>
+     <div class="nav-wrapper">
+       <a href="#" class="brand-logo left">Memeaction v1.0</a>
+       <ul id="nav-mobile" class="right">
+         <li><a href="main-about.html">About</a></li>
+         <li><a href="https://github.com/RyanHecht/Memeaction">Source Code</a></li>
+       </ul>
+     </div>
+  </nav>
+  <div class="container valign-wrapper center-align" id="mainContainer" style="width:100%;height:100%;">
+    <div class="valign" style="width:100%;">
+       <div class="row center-align" style="width:100%;">
+         <p><canvas id="frame" width="640" height="480"></canvas></p>
+         <p><img id="photo" src=""></p>
+         <button id="stop">Take Picture</button>
+       </div>
+    </div>
+  </div>
 
 <script src="js/captureImage.js"></script>
 </body>
