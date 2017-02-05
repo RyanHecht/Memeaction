@@ -27,6 +27,10 @@ app.get('/js/:file', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/js/captureImage.js'));
 });
 
+app.get('/img/:file', function(req, res, next) {
+  res.sendFile(path.join(__dirname+'/img/' + req.params.file))
+})
+
 app.listen(port, function() {
   console.log("Server running!")
 });
