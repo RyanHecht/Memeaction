@@ -19,6 +19,7 @@ function(imgID) {
         console.log("error: " + error);
     } else {
       console.log("no error")
+      console.log(body)
         return "got it: " + body;
     }
 });
