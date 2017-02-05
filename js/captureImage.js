@@ -356,7 +356,7 @@ function stopFunction() {
         url: "/results",
         data: o
       }).done(function(res) {
-        window.location.assign(res);
+        document.write(res)
       })
     });
 
