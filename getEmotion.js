@@ -5,7 +5,7 @@ function(imgID) {
   var object = { "url": "http://memeaction.azurewebsites.net/img/" + imgID + ".png" }
 
   console.log(object);
-  request({
+  return request({
     url: 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize',
     method: 'POST',
     headers: {

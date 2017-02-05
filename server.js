@@ -18,6 +18,7 @@ app.post('/uploadImage', function(req, res, next) {
    var rand = Math.floor(Math.random() * 1000000);
     require("fs").writeFile("img/" + rand + ".png", base64Data, 'base64', function(err) {
       console.log(err);
+      //res.status('500');
     });
     var emotion = require("./getEmotion")(rand);
     console.log("emotion: " + emotion)
