@@ -1,7 +1,10 @@
 var request = require('request-promise');
 
 function emotionFromResponse(res) {
-  console.log(res[0].scores)
+  var scores = res[0].scores
+  var arr = Object.keys( obj ).map(function ( key ) { return obj[key]; });
+  var max = Math.max.apply(null, arr);
+  console.log(max);
 }
 
 
