@@ -20,6 +20,7 @@ app.post('/uploadImage', function(req, res, next) {
       console.log(err);
     });
     var emotion = require("./getEmotion")(rand);
+    console.log("emotion: " + emotion)
     res.send(emotion);
 });
 

@@ -350,7 +350,7 @@ function stopFunction() {
          img: dataBlob
       }
     }).done(function(o) {
-      console.log(o.body);
+      console.log(o);
     });
 
   //console.log(dataURL);
