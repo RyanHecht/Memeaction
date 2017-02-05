@@ -352,7 +352,7 @@ function stopFunction() {
     }).done(function(o) {
 
       $.ajax({
-        type: "GET",
+        type: "POST",
         url: "/results",
         data: o
       })

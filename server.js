@@ -15,7 +15,7 @@ app.get('/image', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/takePicture.html'));
 });
 
-app.get('/results', function(req, res, next) {
+app.post('/results', function(req, res, next) {
   console.log(req.body);
   res.render('index', req.body)
 })
