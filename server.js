@@ -19,7 +19,12 @@ app.post('/uploadImage', function(req, res, next) {
     require("fs").writeFile("img/" + rand + ".png", base64Data, 'base64', function(err) {
       if(err) console.log(err)
       else {
-        var emotion = require("./getEmotion")(rand);
+        require("./getEmotion")(rand)
+        .then(function (body) {
+          console.log(body);
+          var emotion = emotionFromResponse(body);
+          console.log(emotion);
+        })
       }
       //res.status('500');
     });
@@ -45,6 +50,19 @@ app.get('/style/:file*', function(req, res, next) {
 app.get('/img/:file*', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/img/' + req.params.file))
 })
+
+function emotionFromResponse(res) {
+  var scores = res[0].scores
+  var maxEmotion = "";
+  var max = 0;
+  for(key in scores) {
+    if(scores[key] > max) {
+      max = scores[key]
+      maxEmotion = key
+    }
+  }
+  return maxEmotion;
+}
 
 app.listen(port, function() {
   console.log("Server running!")

@@ -1,20 +1,5 @@
 var request = require('request-promise');
 
-function emotionFromResponse(res) {
-  var scores = res[0].scores
-  var maxEmotion = "";
-  var max = 0;
-  for(key in scores) {
-    if(scores[key] > max) {
-      max = scores[key]
-      maxEmotion = key
-    }
-  }
-  return maxEmotion;
-}
-
-
-
 module.exports =
 function(imgID) {
   var options = {
@@ -27,13 +12,5 @@ function(imgID) {
       'Ocp-Apim-Subscription-Key': '9fa170b54cd845d787ca0bee2dfd9daf'
     }
   };
-  request(options)
-    .then(function (body) {
-      console.log(body);
-      var emotion = emotionFromResponse(body);
-      console.log(emotion);
-    })
-    .catch(function (err) {
-      console.log(err.body);
-    })
+  return request(options)
 };
