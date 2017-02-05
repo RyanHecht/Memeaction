@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.json({limit: '50mb'})); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' })); // for parsing application/x-www-form-urlencoded
+var port = process.env.port
 
 app.get('/', function(req, res, next) {
   res.send("Nothing to see here...<i>yet!</i>");
@@ -22,6 +23,6 @@ app.get('/js/:file', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/js/captureImage.js'));
 });
 
-app.listen('8080', function() {
+app.listen(port, function() {
   console.log("Server running!")
 });
