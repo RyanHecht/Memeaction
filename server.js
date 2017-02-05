@@ -35,6 +35,7 @@ app.post('/uploadImage', function(req, res, next) {
         require("./getEmotion")(rand)
         .then(function (body) {
           var emotion = emotionFromResponse(body);
+          console.log(emotion)
           require("./gifapi")(emotion)
           .then(function(data){
             for (count = 0; count < 4; count ++){
