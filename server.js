@@ -42,7 +42,7 @@ app.post('/uploadImage', function(req, res, next) {
             for (count = 0; count < 4; count ++){
               var value="";
               var index = Math.floor(Math.random() * 20);
-              if('content_data' in data.results[index]) {
+              if('results' in data) {
                 value = data.results[index].content_data.embedLink;
               }
               else {
