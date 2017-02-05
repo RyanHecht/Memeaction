@@ -20,6 +20,7 @@ var emotionDictionary = {'anger' : '4', 'contempt' : '5', 'fear' : 'a', 'happine
 var request = require('request');
 var rp = require('request-promise');
 var getGifs = function(emotion){
+  console.log(emotion)
   var gifLinks = [];
   if(emotion in emotionDictionary){
     var options = {
