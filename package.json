@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/RyanHecht/Memeaction#readme",
   "dependencies": {
+    "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "image-capture": "^0.3.1"
   }

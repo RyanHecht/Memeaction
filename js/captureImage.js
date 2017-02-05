@@ -343,12 +343,12 @@ function stopFunction() {
   if (interval) clearInterval(interval);  // stop frame grabbing
   if (videoDevice) videoDevice.stop(); // turn off the camera
   var dataURL = document.getElementById('frame').toDataURL()
-  console.log(dataURL);
+  //console.log(dataURL);
   $.ajax({
   type: "POST",
   url: "/uploadImage",
   data: {
-     img: 'test'
+     img: dataURL
   }
 }).done(function(o) {
   console.log('saved');
