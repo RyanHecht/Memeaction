@@ -46,7 +46,7 @@ app.post('/uploadImage', function(req, res, next) {
               do {
                 index = Math.floor(Math.random() * 20);
               }
-              while(usedNums.contains(index));
+              while(usedNums.includes(index));
               usedNums.push(index);
               if('results' in data) {
                 value = data.results[index].content_data.embedLink;
