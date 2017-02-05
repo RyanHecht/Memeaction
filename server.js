@@ -25,15 +25,15 @@ app.post('/uploadImage', function(req, res, next) {
     //res.send(emotion);
 });
 
-app.get('/js/:file', function(req, res, next) {
-  res.sendFile(path.join(__dirname+'/js' + + req.params.file));
+app.get('/js/:file*', function(req, res, next) {
+  res.sendFile(path.join(__dirname+'/js' + req.params.file));
 });
 
-app.get('/css/:file', function(req, res, next) {
+app.get('/css/:file*', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/css/' + req.params.file));
 });
 
-app.get('/img/:file', function(req, res, next) {
+app.get('/img/:file*', function(req, res, next) {
   res.sendFile(path.join(__dirname+'/img/' + req.params.file))
 })
 
