@@ -32,13 +32,13 @@ app.get('/count', function(req, res, next) {
       res.send(data);
     })
 })
-app.get('/setupcounter', function(req, res, next) {
+/*app.get('/setupcounter', function(req, res, next) {
   var count = 136;
   require("fs").writeFile("counter.txt", count.toString(), "utf8", function(err2) {
     if(err2) console.log(err2);
     res.send("done")
   })
-})
+}) */
 
 app.post('/uploadImage', function(req, res, next) {
    var base64Data = req.body.img.replace(/^data:image\/png;base64,/, "");
