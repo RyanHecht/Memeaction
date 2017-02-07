@@ -27,10 +27,26 @@ app.post('/results', function(req, res, next) {
   console.log(req.body);
   res.render('index', req.body)
 })
+app.get('/setupcounter', function(req, res, next) {
+  var count = 136;
+  require("fs").writeFile("counter.txt", count.toString(), "utf8", function(err2) {
+    if(err2) console.log(err2);
+  })
+})
 
 app.post('/uploadImage', function(req, res, next) {
    var base64Data = req.body.img.replace(/^data:image\/png;base64,/, "");
    var rand = Math.floor(Math.random() * 1000000);
+    require("fs").readFile("counter.txt", "utf8", function(err, data) {
+      if(err) console.log(err)
+      else {
+        var count = parseInt(data) + 1;
+        console.log("count: " + count)
+        require("fs").writeFile("counter.txt", count.toString(), "utf8", function(err2) {
+          if(err2) console.log(err2);
+        })
+      }
+    })
     require("fs").writeFile("img/" + rand + ".png", base64Data, 'base64', function(err) {
       if(err) console.log(err)
       else {
