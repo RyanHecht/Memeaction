@@ -27,10 +27,16 @@ app.post('/results', function(req, res, next) {
   console.log(req.body);
   res.render('index', req.body)
 })
+app.get('/count', function(req, res, next) {
+    require("fs").readFile("counter.txt", "utf8", function(err, data) {
+      res.send(data);
+    })
+})
 app.get('/setupcounter', function(req, res, next) {
   var count = 136;
   require("fs").writeFile("counter.txt", count.toString(), "utf8", function(err2) {
     if(err2) console.log(err2);
+    res.send("done")
   })
 })
 
